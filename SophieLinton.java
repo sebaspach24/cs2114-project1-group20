@@ -1,5 +1,8 @@
-public class SophieLinton
-{
+/**
+ * Represents Sophie.
+ * 
+ */
+ public class SophieLinton {
     //~ Fields ................................................................
 
     //~ Constructors ..........................................................
