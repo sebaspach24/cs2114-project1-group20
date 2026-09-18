@@ -1,17 +1,19 @@
+package game;
+
 /**
- * Represents a movie in the movie collection.
- * A Movie inherits its title, genre, rating, and year from MovieADT.
+ * Where the question bank is created, and question objects are stored.
  *
- * @author Sebastian Pacheco
- * @version 2026.09.10
+ * @authors Sophie Linton, Sebastian Pacheco, Anna-Maria Renalds
+ * @version 2026.09.18
  */
 
-public class Achievement
+
+public class QuestionBank
 {
     //~ Fields ................................................................
 
     //~ Constructors ..........................................................
-    
+
     //~Public  Methods ........................................................
 
 }
