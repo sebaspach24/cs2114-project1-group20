@@ -4,15 +4,18 @@ package game;
  * This class handles saving the game whenever it is done.
  *
  * @authors Sophie Linton, Sebastian Pacheco, Anna-Maria Renalds
- * @version 2026.09.18
+ * @version 2026.09.22
  */
 
 public class Save
 {
-    //~ Fields ................................................................
+    private String fileName;
 
-    //~ Constructors ..........................................................
+    public Save();
 
-    //~Public  Methods ........................................................
+    public Player loadPlayer(String name);
 
+    public void savePlayer(Player player);
+
+    public boolean playerExists(String name);
 }
