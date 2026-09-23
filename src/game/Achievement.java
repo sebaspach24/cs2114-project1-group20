@@ -9,61 +9,75 @@ package game;
 
 public class Achievement
 {
+    private boolean unlocked;
+    private String name;
+    private String description;
+
     // ----------------------------------------------------------
     /**
      * Create a new Achievement object.
      * 
-     * @param x
-     *            is a parameter
-     * @param y
-     *            is also a parameter
+     * @param name
+     *            Name of the achievement.
+     * @param description
+     *            Description of the achievement.
      */
     // ~ Fields ................................................................
 
     // ~ Constructors ..........................................................
-    public Achievement(String x, String y)
+    public Achievement(String name, String description)
     {
-        // idk what to call the variables
+        this.name = name;
+        this.description = description;
+        this.unlocked = false;
     }
     // ----------------------------------------------------------
 
     // ~Public Methods ........................................................
 
+
     /**
-     * Returns as string of the achievement name 
+     * Returns as string of the achievement name
+     * 
      * @return string achievement name
      */
     public String getName()
     {
-        return null;
+        return this.name;
     }
-    
+
+
     // ----------------------------------------------------------
     /**
-     * returns a string of the achievement description and what the player needs to do
+     * returns a string of the achievement description and what the player needs
+     * to do
+     * 
      * @return a string of the achievement description
      */
     public String getDescription()
     {
-        return null;
+        return this.description;
     }
-    
+
+
     // ----------------------------------------------------------
     /**
      * Returns a true false of unlocked status
+     * 
      * @return boolean of unlocked status
      */
     public boolean isUnlocked()
     {
-        return false;
+        return this.unlocked;
     }
-    
+
+
     // ----------------------------------------------------------
     /**
-     * Changes status to true/false of unlocked for the specific achievement
+     * Changes status to true to unlock the specific achievement
      */
     public void unlock()
     {
-        //empty
+        this.unlocked = true;
     }
 }

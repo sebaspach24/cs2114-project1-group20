@@ -22,7 +22,10 @@ public class Player
 
     // ~ Constructors ..........................................................
     /**
+     * Creates a new player object to play the game.
+     * 
      * @param name
+     *            The name of the player
      */
     public Player(String name)
     {
@@ -32,6 +35,13 @@ public class Player
         this.totalWins = 0;
         powerUps = new ArrayList<PowerUp>();
         achievements = new ArrayList<Achievement>();
+
+        // Adding possible achievements
+        achievements
+            .add(new Achievement("Newbie", "Answer your first question"));
+        achievements.add(new Achievement("Smarty", "Reach 500 points"));
+        achievements.add(new Achievement("On Fire", "Get a streak of 5"));
+        achievements.add(new Achievement("Genius", "Reach 1000 points"));
 
     }
 
@@ -50,11 +60,70 @@ public class Player
 
 
     /**
-     * 
+     * Prints all of the players game stats.
      */
     public void getStats()
     {
-        /// Idk what this means
+        System.out.println("Player: " + name);
+        System.out.println("Current Points: " + points);
+        System.out.println("Total Points: " + totalPoints);
+        System.out.println("Current Streak: " + currentStreak);
+        System.out.println("Total Wins: " + totalWins);
+    }
+
+
+    /**
+     * Getter method for currentStreak object.
+     * 
+     * @return Returns the current streak the player has.
+     */
+    public int getCurrentStreak()
+    {
+        return currentStreak;
+    }
+
+
+    /**
+     * Getter method for totalPoints object.
+     * 
+     * @return Returns the amount of total points the player has.
+     */
+    public int getTotalPoints()
+    {
+        return totalPoints;
+    }
+
+
+    /**
+     * Getter method for totalWins object.
+     * 
+     * @return Returns the amount of wins the player has.
+     */
+    public int getTotalWins()
+    {
+        return totalWins;
+    }
+
+
+    /**
+     * Getter method for powerUps list.
+     * 
+     * @return Returns the ArrayList of powerUps the player has.
+     */
+    public ArrayList<PowerUp> getPowerUps()
+    {
+        return powerUps;
+    }
+
+
+    /**
+     * Getter method for Achievement list.
+     * 
+     * @return Returns the ArrayList of achievements the player has.
+     */
+    public ArrayList<Achievement> getAchievements()
+    {
+        return achievements;
     }
 
 
@@ -77,7 +146,8 @@ public class Player
      */
     public void addPoints(int addedPoints)
     {
-        this.points = addedPoints;
+        this.points += addedPoints;
+        this.totalPoints += addedPoints;
     }
 
 
@@ -115,16 +185,27 @@ public class Player
      */
     public void resetGameStats()
     {
-        ///
+        this.points = 0;
+        this.currentStreak = 0;
     }
 
 
     /**
+     * Unlocks an achievement for the player.
+     * 
      * @param achievement
+     *            The achievement being unlocked.
      */
     public void unlockAchievement(String achievement)
     {
-        // ?
+        for (Achievement item : achievements)
+        {
+            if (item.getName().equalsIgnoreCase(achievement))
+            {
+                item.unlock();
+                break;
+            }
+        }
     }
 
 
