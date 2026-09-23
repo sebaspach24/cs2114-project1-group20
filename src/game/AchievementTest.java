@@ -6,7 +6,7 @@ package game;
  *  @author srena
  *  @version Sep 22, 2026
  */
-public class AchievementTest
+public class AchievementTest extends student.TestCase
 {
 
     
@@ -14,39 +14,18 @@ public class AchievementTest
     
     // ----------------------------------------------------------
     /**
-     * tests that an achievement object is created properly 
+     * tests that an achievement object is created properly and the getName, getDescription and isUnlocked
      */
     public void testAchievement()
     {
-        //
+        Achievement achieve = new Achievement("achieve", "allows you to achieve");
+        assertEquals(achieve.getName(),"achieve");
+        assertEquals(achieve.getDescription(), "allows you to achieve");
+        assertFalse(achieve.isUnlocked());
+        
     }
     
-    // ----------------------------------------------------------
-    /**
-     * Creates an achievement object and tests if the name is properly returned 
-     */
-    public void testGetName()
-    {
-        //
-    }
-    
-    // ----------------------------------------------------------
-    /**
-     * Creates an achievement object and checks if the description is properly returned
-     */
-    public void testGetDescription()
-    {
-        //
-    }
-
-    // ----------------------------------------------------------
-    /**
-     * Checks if the achievement is registered as unlocked when a hypothetical player object "unlocks" that achievement 
-     */
-    public void testIsUnlocked()
-    {
-        //
-    }
+   
     
     // ----------------------------------------------------------
     /**
@@ -54,8 +33,11 @@ public class AchievementTest
      */
     public void testUnlock()
     {
-        //
+        Achievement achieve = new Achievement("achieve", "allows you to achieve");
+        achieve.unlock();
+        assertTrue(achieve.isUnlocked());
     }
+  
 
     
 }
