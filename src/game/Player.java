@@ -43,6 +43,15 @@ public class Player
         achievements.add(new Achievement("On Fire", "Get a streak of 5"));
         achievements.add(new Achievement("Genius", "Reach 1000 points"));
 
+        // Adding PowerUps
+        powerUps.add(new PowerUp("Hint", "Gives a hint for the question."));
+        powerUps.add(new PowerUp("50/50", "Removes half the answer chocies."));
+        powerUps
+            .add(new PowerUp("Double Points", "Gives a double point reward."));
+        powerUps.add(
+            new PowerUp(
+                "Second Chance",
+                "Gives two tries to answer the question"));
     }
 
     // ~Public Methods ........................................................
