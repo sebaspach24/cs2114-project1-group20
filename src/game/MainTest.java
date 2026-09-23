@@ -1,5 +1,8 @@
 package game;
 
+import java.util.ArrayList;
+import java.util.Scanner;
+
 // -------------------------------------------------------------------------
 /**
  * Testing the main class
@@ -13,13 +16,7 @@ public class MainTest extends student.TestCase
 
     // ~ Constructors ..........................................................
 // ----------------------------------------------------------
-/**
- * Create a new MainTest object.
- */
-public MainTest()
-{
-   
-}
+
     // ----------------------------------------------------------
     /**
      * test method checks if the game was started, maybe if
@@ -30,51 +27,37 @@ public MainTest()
 
 public void testStartGame(){
     
-    /*System.out.println("Welcome to Trivia!");
-
-        boolean addingPlayers = true;
-
-        while (addingPlayers && players.size() < 4)
-        {
-            System.out.println();
-            System.out.println("1. Create a new profile");
-            System.out.println("2. Use an existing profile");
-            System.out.print("Choose an option: ");
-
-            String choice = scanner.nextLine();
-
-            if (choice.equals("1"))
-            {
-                createPlayer();
-            }
-            else if (choice.equals("2"))
-            {
-                loadPlayer();
-            }
-            else
-            {
-                System.out.println("Invalid choice. Please enter 1 or 2.");
-                continue;
-            }
-
-            if (players.size() == 4)
-            {
-                System.out.println("Maximum number of players reached.");
-                break;
-            }
-
-            if (!players.isEmpty())
-            {
-                System.out
-                    .print("Would you like to add another player? (yes/no): ");
-
-                String answer = scanner.nextLine();
-
-                if (answer.equalsIgnoreCase("no"))
-                {
-                    addingPlayers = false;
-                }
-            }*/
+    StringBuilder inputs = new StringBuilder();
+    inputs.append("1\nno\n"); 
+    for (int i = 0; i < 5; i++) {
+        inputs.append("Category\nDifficulty\n1\nAnswer\n");
+    }
+    
+    System.setIn(new java.io.ByteArrayInputStream(inputs.toString().getBytes()));
+    
+    StringBuilder newer = new StringBuilder();
+    newer.append("3\n1\nno\n"); 
+    for (int i = 0; i < 5; i++) {
+        newer.append("Category\nDifficulty\n1\nAnswer\n");
+    }
+    
+    System.setIn(new java.io.ByteArrayInputStream(newer.toString().getBytes()));
+    
+    StringBuilder newthing = new StringBuilder();
+    newthing.append("1\nyes\n"); // Player 1
+    newthing.append("2\nyes\n"); // Player 2
+    newthing.append("1\nyes\n"); // Player 3
+    newthing.append("2\n");      // Player 4 (Hits cap, shouldn't ask "Would you like to add another...")
+    
+    // Followed by 5 rounds of dummy inputs * 4 players = 20 total turns
+    for (int round = 0; round < 5; round++) {
+        for (int p = 0; p < 4; p++) {
+            newthing.append("Category\nDifficulty\n1\nAnswer\n");
+        }
+    }
+    
+    System.setIn(new java.io.ByteArrayInputStream(newthing.toString().getBytes()));
+    
 }
 
 // ----------------------------------------------------------
