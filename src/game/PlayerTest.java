@@ -45,6 +45,87 @@ public class PlayerTest extends student.TestCase
         assertEquals("Gives two tries to answer the question", play.getPowerUps().get(3).getPowerUpDescription());
     }
     
+    // ----------------------------------------------------------
+    /**
+     * testing the add points method
+     */
+    public void testAddPoints()
+    {
+        Player play = new Player("play");
+        play.addPoints(2);
+        assertTrue(play.getPoints() == 2);
+        assertTrue(play.getTotalPoints() == 2);
+        
+    }
+    
+    // ----------------------------------------------------------
+    /**
+     * tests the addWin() method
+     */
+    public void testAddWin()
+    {
+        Player play = new Player("play");
+        play.addWin();
+        assertTrue(play.getTotalWins()== 1);
+    }
+    
+    // ----------------------------------------------------------
+    /**
+     * tests the processStreak method
+     * @param answer
+     */
+    public void  testProcessStreak(boolean answer)
+    {
+        Player play = new Player("play");
+        play.processStreak(true);
+        assertTrue(play.getCurrentStreak() == 1);
+        play.processStreak(false);
+        assertTrue(play.getCurrentStreak() == 0);
+    }
+    
+    // ----------------------------------------------------------
+    /**
+     * testing the resetGameStats method
+     */
+    public void testResetGameStats()
+    {
+        Player play = new Player("play");
+        play.resetGameStats();
+        assertTrue(play.getTotalPoints() == 0);
+        assertTrue(play.getCurrentStreak() == 0);
+    }
+    
+    // ----------------------------------------------------------
+    /**
+     * tests the unlockAchievement method
+     */
+    public void testUnlockAchievement()
+    {
+        Player play = new Player("play");
+        play.unlockAchievement("Smarty");
+     
+      
+        assertTrue(play.getAchievements().get(1).isUnlocked());
+        
+        assertFalse(play.getAchievements().get(3).isUnlocked());
+        
+       
+    }
+    /*   
+
+
+
+
+    public void unlockAchievement(String achievement)
+    {
+        for (Achievement item : achievements)
+        {
+            if (item.getName().equalsIgnoreCase(achievement))
+            {
+                item.unlock();
+                break;
+            }
+        } */
 
 
 }
