@@ -9,10 +9,20 @@ package game;
 
 public class PowerUp
 {
-    //~ Fields ................................................................
+    // ~ Fields ................................................................
+    private String powerUpName;
+    // ~ Constructors ..........................................................
 
-    //~ Constructors ..........................................................
+    // ~Public Methods ........................................................
 
-    //~Public  Methods ........................................................
+    /**
+     * Getter method for powerUp string.
+     * 
+     * @return Returns named of power up.
+     */
+    public String getPowerupName()
+    {
 
+        return powerUpName;
+    }
 }
