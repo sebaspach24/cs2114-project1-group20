@@ -146,6 +146,33 @@ public class Player
         return points;
     }
 
+    // ----------------------------------------------------------
+    /**
+     * Setter method for points
+     * @param points the desired points
+     */
+    public void setTotalPoints(int points)
+    {
+        this.points = points;
+    }
+    // ----------------------------------------------------------
+    /**
+     * setter method for the streak
+     * @param streak the desired streak
+     */
+    public void setCurrentStreak(int streak )
+    {
+        currentStreak = streak;
+    }
+    // ----------------------------------------------------------
+    /**
+     * the setter method for the total wins
+     * @param wins the desired wins
+     */
+    public void setTotalWins(int wins)
+    {
+        totalWins = wins;
+    }
 
     /**
      * Add points to a players profile.

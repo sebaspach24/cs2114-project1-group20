@@ -1,0 +1,8 @@
+play
+0
+0
+0
+Newbie,false
+Smarty,false
+On Fire,false
+Genius,false

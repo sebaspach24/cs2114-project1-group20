@@ -70,6 +70,20 @@ public class PlayerTest extends student.TestCase
     }
     
     // ----------------------------------------------------------
+    /**
+     * tests the setter methods
+     */
+    public void testSetters()
+    {
+        Player play = new Player("play");
+        play.setTotalPoints(3);
+        assertEquals(play.getTotalPoints(), 3);
+        play.setCurrentStreak(3);
+        assertEquals(play.getCurrentStreak(), 3);
+        play.setCurrentStreak(3);
+        assertEquals(play.getTotalWins(),3);
+    }
+    // ----------------------------------------------------------
 
     // ----------------------------------------------------------
     /**

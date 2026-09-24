@@ -1,0 +1,8 @@
+TestPlayer
+0
+3
+5
+Newbie,false
+Smarty,false
+On Fire,false
+Genius,false
