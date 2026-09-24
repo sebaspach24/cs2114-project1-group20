@@ -217,12 +217,17 @@ public class Player
 
 
     /**
-     * Resets the per-game stats.
+     * Resets the per-game stats and power-ups.
      */
     public void resetGameStats()
     {
         this.points = 0;
         this.currentStreak = 0;
+
+        for (PowerUp powerUp : powerUps)
+        {
+            powerUp.reset();
+        }
     }
 
 
@@ -246,11 +251,13 @@ public class Player
 
 
     /**
-     * Allows the user to use a powerUp.
-     * 
+     * Allows the user to use a power-up if it has not already
+     * been used during the current game.
+     *
      * @param powerUp
-     *            The power up wanting to be used.
-     * @return Returns if they can use the power up or not.
+     *     the power-up wanting to be used
+     * @return true if the power-up was successfully used,
+     *         false otherwise
      */
     public boolean usePowerUp(String powerUp)
     {
@@ -258,10 +265,16 @@ public class Player
         {
             if (item.getPowerupName().equalsIgnoreCase(powerUp))
             {
-                return true;
+                if (!item.isUsed())
+                {
+                    item.use();
+                    return true;
+                }
 
+                return false;
             }
         }
+
         return false;
     }
 }

@@ -20,10 +20,10 @@ public class Main
     private Scanner scanner;
     private int currentRound;
     private static final int MAX_ROUNDS = 5;
+    private boolean stoppedEarly;
     
 
     // ~ Constructors ..........................................................
-
 
     /**
      * Creates a new Main object and initializes the objects needed to run the
@@ -37,6 +37,7 @@ public class Main
         gameOver = false;
         scanner = new Scanner(System.in);
         currentRound = 0;
+        stoppedEarly = false;
     }
 
     // ~ Public Methods ........................................................
@@ -125,25 +126,54 @@ public class Main
     
     
     /**
-     * Plays one round of the trivia game. Each player selects a category
-     * and difficulty and receives a matching question. If no questions
-     * remain for the selected combination, the player chooses again.
+     * Plays one round of the trivia game. Each player gets one turn
+     * to select and answer a question.
      */
     public void playRound()
     {
         for (Player player : players)
         {
+            if (gameOver)
+            {
+                break;
+            }
+
             System.out.println();
             System.out.println(player.getName() + "'s turn!");
 
+            // Give the player the option to continue or stop the game early
+            System.out.println("1. Choose a question");
+            System.out.println("2. Stop early");
+            System.out.print("Choose an option: ");
+
+            String choice = scanner.nextLine();
+
+            while (!choice.equals("1") && !choice.equals("2"))
+            {
+                System.out.println(
+                    "Invalid choice. Please enter 1 or 2.");
+                System.out.print("Choose an option: ");
+                choice = scanner.nextLine();
+            }
+
+            // Stop the game early
+            if (choice.equals("2"))
+            {
+                stoppedEarly = true;
+                gameOver = true;
+                break;
+            }
+
             Question question = null;
 
+            // Keep asking until an available question is selected
             while (question == null)
             {
                 String category = selectCategory();
                 String difficulty = selectDifficulty();
 
-                question = questionBank.getQuestion(category, difficulty);
+                question =
+                    questionBank.getQuestion(category, difficulty);
 
                 if (question == null)
                 {
@@ -350,41 +380,53 @@ public class Main
     
     
     /**
-     * Ends the current game, determines the winner or winners,
-     * displays final scores, and saves each player's profile.
+     * Ends the current game, displays final scores, determines the
+     * winner if the game was completed, and saves each player's profile.
      */
     public void endGame()
     {
-        int highestScore = 0;
+        System.out.println();
 
-        for (Player player : players)
+        if (stoppedEarly)
         {
-            if (player.getPoints() > highestScore)
-            {
-                highestScore = player.getPoints();
-            }
+            System.out.println("Game stopped early.");
+        }
+        else
+        {
+            System.out.println("Game Over!");
         }
 
-        System.out.println();
-        System.out.println("Game Over!");
         System.out.println("Final Scores:");
 
         for (Player player : players)
         {
             System.out.println(
-                player.getName() + ": " + player.getPoints()
-                    + " points");
+                player.getName() + ": "
+                    + player.getPoints() + " points");
         }
 
-        System.out.println();
-        System.out.println("Winner(s):");
-
-        for (Player player : players)
+        if (!stoppedEarly)
         {
-            if (player.getPoints() == highestScore)
+            int highestScore = 0;
+
+            for (Player player : players)
             {
-                System.out.println(player.getName());
-                player.addWin();
+                if (player.getPoints() > highestScore)
+                {
+                    highestScore = player.getPoints();
+                }
+            }
+
+            System.out.println();
+            System.out.println("Winner(s):");
+
+            for (Player player : players)
+            {
+                if (player.getPoints() == highestScore)
+                {
+                    System.out.println(player.getName());
+                    player.addWin();
+                }
             }
         }
 
