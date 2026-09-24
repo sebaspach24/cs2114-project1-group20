@@ -53,8 +53,8 @@ public class PlayerTest extends student.TestCase
     {
         Player play = new Player("play");
         play.addPoints(2);
-        assertTrue(play.getPoints() == 2);
-        assertTrue(play.getTotalPoints() == 2);
+        assertEquals(play.getPoints(), 2);
+        assertEquals(play.getTotalPoints(), 2);
         
     }
     
@@ -66,23 +66,11 @@ public class PlayerTest extends student.TestCase
     {
         Player play = new Player("play");
         play.addWin();
-        assertTrue(play.getTotalWins()== 1);
+        assertEquals(play.getTotalWins(), 1);
     }
     
     // ----------------------------------------------------------
-    /**
-     * tests the processStreak method
-     * @param answer
-     */
-    public void  testProcessStreak(boolean answer)
-    {
-        Player play = new Player("play");
-        play.processStreak(true);
-        assertTrue(play.getCurrentStreak() == 1);
-        play.processStreak(false);
-        assertTrue(play.getCurrentStreak() == 0);
-    }
-    
+
     // ----------------------------------------------------------
     /**
      * testing the resetGameStats method
@@ -91,8 +79,8 @@ public class PlayerTest extends student.TestCase
     {
         Player play = new Player("play");
         play.resetGameStats();
-        assertTrue(play.getTotalPoints() == 0);
-        assertTrue(play.getCurrentStreak() == 0);
+        assertEquals(play.getTotalPoints(), 0);
+        assertEquals(play.getCurrentStreak(), 0);
     }
     
     // ----------------------------------------------------------
@@ -109,23 +97,58 @@ public class PlayerTest extends student.TestCase
         
         assertFalse(play.getAchievements().get(3).isUnlocked());
         
+        Player play2 = new Player("play2");
+        play2.unlockAchievement("FAKE");
+        assertFalse(play.getAchievements().get(0).isUnlocked());
+        
        
     }
-    /*   
-
-
-
-
-    public void unlockAchievement(String achievement)
+    
+    // ----------------------------------------------------------
+    /**
+     * testing the getStats method
+     */
+    public void testGetStats()
     {
-        for (Achievement item : achievements)
-        {
-            if (item.getName().equalsIgnoreCase(achievement))
-            {
-                item.unlock();
-                break;
-            }
-        } */
+        Player play = new Player("play");
+        play.getStats();
+        String actual = systemOut().getHistory();
+
+        String expected = "Player: play\n" +
+                                "Current Points: 0\n" +
+                                "Total Points: 0\n" +
+                                "Current Streak: 0\n" +
+                                "Total Wins: 0\n";
+
+        assertEquals(expected, actual);
+    }
+    
+    
+    // ----------------------------------------------------------
+    /**
+     * testing the process streak method
+     */
+    public void testProcessStreak()
+    {
+        Player play = new Player("play");
+        play.processStreak(true);
+        assertEquals(play.getCurrentStreak(), 1);
+        play.processStreak(false);
+        assertEquals(play.getCurrentStreak(), 0);
+    }
+    
+    
+    // ----------------------------------------------------------
+    /**
+     * Place a description of your method here.
+     */
+    public void testUsePowerUp()
+    {
+        Player play = new Player("play");
+        assertTrue(play.usePowerUp("50/50"));
+        assertFalse(play.usePowerUp("FAKE"));
+    }
+    
 
 
 }
