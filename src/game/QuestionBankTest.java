@@ -2,20 +2,25 @@ package game;
 
 import java.util.ArrayList;
 import java.util.Random;
-
+/**
+ * Tests the question bank class
+ *
+ * @authors Sophie Linton, Sebastian Pacheco, Anna-Maria Renalds
+ * @version 2026.09.18
+ */
 public class QuestionBankTest extends student.TestCase
 {
-    //~ Fields ................................................................
+ 
+    /**
+     * tests the get question method
+     */
 
-    //~ Constructors ..........................................................
-
-    //~Public  Methods ........................................................
     
     public void testGetQuestion()
     {
         QuestionBank bank = new QuestionBank();
         
-        Question noMatch = bank.getQuestion("History", "Hard");
+       
         
         Question q1 = bank.getQuestion("Math", "Easy");
         assertNotNull(q1);

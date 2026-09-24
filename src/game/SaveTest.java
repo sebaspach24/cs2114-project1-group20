@@ -2,7 +2,12 @@ package game;
 import java.io.File;
 import java.io.IOException;
 // -------------------------------------------------------------------------
-
+/**
+ * Tests the save class
+ *
+ * @authors Sophie Linton, Sebastian Pacheco, Anna-Maria Renalds
+ * @version 2026.09.18
+ */
 public class SaveTest extends student.TestCase
 {
   // ----------------------------------------------------------
@@ -65,6 +70,7 @@ public class SaveTest extends student.TestCase
         
        
         java.io.File file = new java.io.File("CorruptPlayer_save.txt");
+        @SuppressWarnings("resource")
         java.io.PrintWriter writer = new java.io.PrintWriter(file);
         
         writer.println("CorruptPlayer");

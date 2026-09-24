@@ -1,10 +1,15 @@
 package game;
-
+/**
+ * Tests the powerup class
+ *
+ * @authors Sophie Linton, Sebastian Pacheco, Anna-Maria Renalds
+ * @version 2026.09.18
+ */
 public class PowerUpTest extends student.TestCase
 {
     // ----------------------------------------------------------
     /**
-         tests the is used method
+         tests the get powerup name and get power up description methods
      */
     public void testGetPowerUpNameandDescription()
     {
@@ -20,6 +25,10 @@ public class PowerUpTest extends student.TestCase
         assertEquals("Gives two tries to answer the question", play.getPowerUps().get(3).getPowerUpDescription());
 
     }
+    // ----------------------------------------------------------
+    /**
+     * tests the is used method
+     */
     public void testIsUsed()
     {
         PowerUp power = new PowerUp("power", "does a power");

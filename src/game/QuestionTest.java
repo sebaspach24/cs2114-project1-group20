@@ -2,7 +2,11 @@ package game;
 
 import java.util.ArrayList;
 import java.util.Random;
-
+/**
+ * Tests the Question class
+ * @authors Sophie Linton, Sebastian Pacheco, Anna-Maria Renalds
+ * @version 2026.09.18
+ */
 public class QuestionTest extends student.TestCase
 {
     //~ Fields ................................................................
@@ -12,6 +16,10 @@ public class QuestionTest extends student.TestCase
     //~Public  Methods ........................................................
     
 
+    // ----------------------------------------------------------
+    /**
+     * tests getQuestionText(), getCategory(), getDifficulty(), getHint() and get Choices()
+     */
     public void testGetMethods()
     {
         String[] initialChoices = new String[] { "Paris", "London", "Berlin", "Madrid" };
@@ -32,7 +40,11 @@ public class QuestionTest extends student.TestCase
        assertSame(initialChoices, question.getChoices());
     }
         
-      public void testCheckAnswer()
+      // ----------------------------------------------------------
+    /**
+     * tests the check answer method.
+     */
+    public void testCheckAnswer()
       {
           String[] initialChoices = new String[] { "Paris", "London", "Berlin", "Madrid" };
           
@@ -50,7 +62,11 @@ public class QuestionTest extends student.TestCase
           assertFalse(question.checkAnswer("London"));
       }
   
-      public void testGetFiftyFiftyChoices()
+      // ----------------------------------------------------------
+    /**
+     * tests the get fifty fifty choices method
+     */
+    public void testGetFiftyFiftyChoices()
       {
        String[] initialChoices = new String[] { "Paris", "London", "Berlin", "Madrid" };
           

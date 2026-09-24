@@ -1,10 +1,10 @@
 package game;
 // -------------------------------------------------------------------------
 /**
- *  Tests achievement class
- * 
- *  @author srena
- *  @version Sep 22, 2026
+ * tests the achievement class
+ *
+ * @authors Sophie Linton, Sebastian Pacheco, Anna-Maria Renalds
+ * @version 2026.09.18
  */
 public class AchievementTest extends student.TestCase
 {

@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 // -------------------------------------------------------------------------
 /**
- *  Tests the player class
- * 
- *  @author srena
- *  @version Sep 23, 2026
+  Tests the player class
+ *
+ * @authors Sophie Linton, Sebastian Pacheco, Anna-Maria Renalds
+ * @version 2026.09.18
  */
 public class PlayerTest extends student.TestCase
 {
