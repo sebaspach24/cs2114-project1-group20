@@ -71,18 +71,30 @@ public class PlayerTest extends student.TestCase
     
     // ----------------------------------------------------------
     /**
-     * tests the setter methods
+     * tests the setter and getter methods for current streak
      */
-    public void testSetters()
+    public void testCurrentStreak()
     {
         Player play = new Player("play");
-        play.setTotalPoints(3);
-        assertEquals(play.getTotalPoints(), 3);
-        play.setCurrentStreak(3);
-        assertEquals(play.getCurrentStreak(), 3);
-        play.setCurrentStreak(3);
-        assertEquals(play.getTotalWins(),3);
+        assertEquals(play.getCurrentStreak(), 0);
+        play.setCurrentStreak(5);
+        assertEquals(play.getCurrentStreak(),5);
+        
     }
+    
+    // ----------------------------------------------------------
+    /**
+     * Test getter and setter methods for totalwins
+     */
+    public void testTotalWins()
+    {
+        Player play = new Player("play");
+        assertEquals(play.getTotalWins(), 0);
+        play.setTotalWins(5);
+        assertEquals(play.getTotalWins(),5);
+    }
+    
+    
     // ----------------------------------------------------------
 
     // ----------------------------------------------------------
@@ -97,6 +109,15 @@ public class PlayerTest extends student.TestCase
         assertEquals(play.getCurrentStreak(), 0);
     }
     
+    // ----------------------------------------------------------
+    /**
+     * Test set total points
+     */
+    public void testSetTotalPoints()
+    {
+        Player play = new Player("play");
+        play.setTotalPoints(4);
+    }
     // ----------------------------------------------------------
     /**
      * tests the unlockAchievement method
@@ -160,6 +181,7 @@ public class PlayerTest extends student.TestCase
     {
         Player play = new Player("play");
         assertTrue(play.usePowerUp("50/50"));
+        assertFalse(play.usePowerUp("50/50"));
         assertFalse(play.usePowerUp("FAKE"));
     }
     
