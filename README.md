@@ -36,3 +36,6 @@ The game contains **36 questions** divided among:
 * 3 questions for each category-difficulty combination
 
 Once all 3 questions from a specific category and difficulty combination have been used, players can no longer select questions from that combination. However, the overall question bank contains enough questions for a complete 5-round game.
+
+## UML Diagram
+<img width="1774" height="887" alt="ChatGPT Image Sep 24, 2026, 09_00_17 PM" src="https://github.com/user-attachments/assets/638e3e73-82aa-46a0-8396-059e5b6b76d0" />
